@@ -26,8 +26,9 @@ class LlavaVision:
         # Load available models and API keys
         ollama_models = ollama.list()["models"]
         ollama_model_names = [model['name'] for model in ollama_models if "llava" in model['name'].lower()]
+        if not ollama_model_names:
+            ollama_model_names = ["Unnamed Model"]
         
-
         return {
             "required": {
                 "prompt": ("STRING", {"default": "Describe this image."}),
