@@ -1,6 +1,7 @@
 import subprocess
 import sys
 
+
 def install_and_import(package):
     try:
         __import__(package)
@@ -10,30 +11,37 @@ def install_and_import(package):
     finally:
         globals()[package] = __import__(package)
 
+
 # Install packages if not already installed
 install_and_import("ollama")
 
 # Import the installed packages
 import ollama
 
+
 class OllamaService:
     @classmethod
     def INPUT_TYPES(cls):
         # Load available models and API keys
         ollama_models = ollama.list()["models"]
-        ollama_model_names = [model['name'] for model in ollama_models]
+        ollama_model_names = [model.model for model in ollama_models]
         if not ollama_model_names:
             ollama_model_names = ["Unnamed Model"]
-        ollama_model_names = [item for item in ollama_model_names if "llava" not in item.lower()]
+        ollama_model_names = [
+            item for item in ollama_model_names if "llava" not in item.lower()
+        ]
 
         return {
             "required": {
                 "prompt": ("STRING", {"default": "Enter your prompt here..."}),
             },
             "optional": {
-                "ollama_model": (ollama_model_names, {"default": ollama_model_names[0] if ollama_model_names else ""}),
+                "ollama_model": (
+                    ollama_model_names,
+                    {"default": ollama_model_names[0] if ollama_model_names else ""},
+                ),
                 "Console_log": ("BOOLEAN", {"default": True}),
-            }
+            },
         }
 
     RETURN_TYPES = ("STRING",)
@@ -47,34 +55,31 @@ class OllamaService:
         try:
             response_stream = ollama.chat(
                 model=model,
-                messages=[{'role': 'user', 'content': prompt}],
+                messages=[{"role": "user", "content": prompt}],
                 stream=stream,
             )
 
             output_text = ""
             if stream:
                 for chunk in response_stream:
-                    output_text += chunk['message']['content']
+                    output_text += chunk["message"]["content"]
                     if Console_log:
-                        print(chunk['message']['content'], end='', flush=True)
+                        print(chunk["message"]["content"], end="", flush=True)
             else:
                 for chunk in response_stream:
-                    output_text += chunk['message']['content']
+                    output_text += chunk["message"]["content"]
             output_text = str(output_text)
             return (output_text,)
 
         except Exception as e:
-            print('Error:', e)
+            print("Error:", e)
 
     @classmethod
     def IS_CHANGED(cls, *args):
         return True
 
-# Node export details
-NODE_CLASS_MAPPINGS = {
-    "ollama": OllamaService
-}
 
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "ollama": "Load Ollama LLMs"
-}
+# Node export details
+NODE_CLASS_MAPPINGS = {"ollama": OllamaService}
+
+NODE_DISPLAY_NAME_MAPPINGS = {"ollama": "Ollama Chat"}

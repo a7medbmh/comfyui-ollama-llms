@@ -8,9 +8,9 @@ This repository, maintained by [fairy-root](https://github.com/fairy-root), prov
 
 ## Features
 
-- **Load Ollama LLMs**: Interact with Ollama's language models, including streaming and logging capabilities.
+- **Ollama Chat**: Interact with Ollama's language models, including streaming and logging capabilities.
 - **Concatenate Text LLMs**: Concatenate instructional text with prompts, offering customizable text formatting.
-- **Load Llava Vision LLMs**: Loads Llava model and interacts with loaded images based on the user prompts.
+- **Ollama Vision**: Loads Llava model and interacts with loaded images based on the user prompts.
 
 ## Workflow
 
@@ -28,11 +28,12 @@ This repository, maintained by [fairy-root](https://github.com/fairy-root), prov
 ### Steps
 
 1. Installing the node:
+
 - Goto `ComfyUI/custom_nodes` dir in **terminal(cmd)**
 - Clone the repository
-   ```bash
-   git clone https://github.com/fairy-root/comfyui-ollama-llms.git
-   ```
+  ```bash
+  git clone https://github.com/fairy-root/comfyui-ollama-llms.git
+  ```
 - Restart ComfyUI
 
 2. Install required Python packages:
@@ -47,13 +48,13 @@ This repository, maintained by [fairy-root](https://github.com/fairy-root), prov
 **Phi3 is just an example since it is small and fast. You can choose any other models as well.**
 
 - To use the **Load Ollama LLms** node, you'll need to install **Ollama**. Visit [Ollama](https://ollama.com) and install the Ollama App for your OS, then in the terminal use the command:
-   ```bash
-   ollama pull phi3
-   ```
-   **or**
-   ```bash
-   ollama run phi3
-   ```
+  ```bash
+  ollama pull phi3
+  ```
+  **or**
+  ```bash
+  ollama run phi3
+  ```
 
 ## Donation
 
