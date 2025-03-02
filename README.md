@@ -2,7 +2,9 @@
 
 This repository, maintained by [fairy-root](https://github.com/fairy-root), provides custom nodes for [ComfyUI](https://github.com/comfyanonymous/ComfyUI), integrating with the Ollama API for language model interactions and offering text manipulation capabilities.
 
-![Ollama](https://i.imgur.com/60snV9O.png "Displaying help")
+<div align="center">
+  <img src="imgs/nodes.png" alt="SDO Logo" width="128" height="128">
+</div>
 
 ## Installation Guide
 
@@ -12,11 +14,7 @@ This repository, maintained by [fairy-root](https://github.com/fairy-root), prov
 - **Concatenate Text LLMs**: Concatenate instructional text with prompts, offering customizable text formatting.
 - **Ollama Vision**: Loads Llava model and interacts with loaded images based on the user prompts.
 
-## Workflow
-
-![Ollama](https://i.imgur.com/JRlQQXr.png "Displaying help")
-
-- Visit this Link to get the workflow [openart ai](https://openart.ai/workflows/toad_jaunty_59/comfyui-ollama-node-for-prompt-creation/u5P5TiFlFfKbsx2TCcK5)
+---
 
 ## Installation
 
