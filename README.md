@@ -3,7 +3,7 @@
 This repository, maintained by [fairy-root](https://github.com/fairy-root), provides custom nodes for [ComfyUI](https://github.com/comfyanonymous/ComfyUI), integrating with the Ollama API for language model interactions and offering text manipulation capabilities.
 
 <div align="center">
-  <img src="imgs/nodes.png" alt="SDO Logo" width="128" height="128">
+  <img src="imgs/nodes.png">
 </div>
 
 ## Installation Guide
